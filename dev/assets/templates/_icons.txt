@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "<%= fontName %>";
+  src: url('<%= fontPath %><%= fontName %>.eot');
+  src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+  url('<%= fontPath %><%= fontName %>.woff2') format('woff2'),
+  url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+  url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
+  url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
+}
+
+@mixin <%= className%>-styles {
+  font-family: "<%= fontName %>";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+  text-decoration: none;
+  text-transform: none;
+}
+
+%<%= className%> {
+  @include <%= className%>-styles;
+}
+
+@function <%= className%>-char($name) {
+  $char: "";
+<% _.each(glyphs, function(glyph) { %>
+  @if $name == <%= glyph.name %> {
+  $char: "\<%= glyph.unicode %>";
+}<% }); %>
+
+@return $char;
+}
+
+@mixin <%= className%>($name, $insert: before, $extend: true) {
+&:#{$insert} {
+  @if $extend {
+    @extend %<%= className%>;
+  } @else {
+    @include <%= className%>-styles;
+  }
+  content: <%= className%>-char($name);
+}
+}
+
+.<%= className %>:before {
+  @include <%= className%>-styles;
+}
+
+<% _.each(glyphs, function(glyph) { %>.<%= className%>-<%= glyph.name %> {
+  @include <%= className%>(<%= glyph.name %>);
+}
+<% }); %>

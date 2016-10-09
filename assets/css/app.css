@@ -1,0 +1,34 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "pnfont";
+  src: url("./dev/assets/fonts/pnfont.eot");
+  src: url("./dev/assets/fonts/pnfont.eot?#iefix") format("eot"), url("./dev/assets/fonts/pnfont.woff2") format("woff2"), url("./dev/assets/fonts/pnfont.woff") format("woff"), url("./dev/assets/fonts/pnfont.ttf") format("truetype"), url("./dev/assets/fonts/pnfont.svg#pnfont") format("svg"); }
+
+.if-facebook:before, .if-instagram:before, .if-twitter:before {
+  font-family: "pnfont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none; }
+
+.if:before {
+  font-family: "pnfont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none; }
+
+.if-facebook:before {
+  content: ""; }
+
+.if-instagram:before {
+  content: ""; }
+
+.if-twitter:before {
+  content: ""; }

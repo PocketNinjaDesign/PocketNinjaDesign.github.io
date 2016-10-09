@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "pnfont";
+  src: url('./dev/assets/fonts/pnfont.eot');
+  src: url('./dev/assets/fonts/pnfont.eot?#iefix') format('eot'),
+  url('./dev/assets/fonts/pnfont.woff2') format('woff2'),
+  url('./dev/assets/fonts/pnfont.woff') format('woff'),
+  url('./dev/assets/fonts/pnfont.ttf') format('truetype'),
+  url('./dev/assets/fonts/pnfont.svg#pnfont') format('svg');
+}
+
+@mixin if-styles {
+  font-family: "pnfont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+  text-decoration: none;
+  text-transform: none;
+}
+
+%if {
+  @include if-styles;
+}
+
+@function if-char($name) {
+  $char: "";
+
+  @if $name == facebook {
+  $char: "\";
+}
+  @if $name == instagram {
+  $char: "\";
+}
+  @if $name == twitter {
+  $char: "\";
+}
+
+@return $char;
+}
+
+@mixin if($name, $insert: before, $extend: true) {
+&:#{$insert} {
+  @if $extend {
+    @extend %if;
+  } @else {
+    @include if-styles;
+  }
+  content: if-char($name);
+}
+}
+
+.if:before {
+  @include if-styles;
+}
+
+.if-facebook {
+  @include if(facebook);
+}
+.if-instagram {
+  @include if(instagram);
+}
+.if-twitter {
+  @include if(twitter);
+}
