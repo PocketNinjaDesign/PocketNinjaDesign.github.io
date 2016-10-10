@@ -1,0 +1,15 @@
+
+
+.page.home {
+  .icon-test {
+    border-radius: 10px;
+    box-shadow: 0 0 100px rgba(0,0,0,0.15);
+    padding: 30px;
+
+    .icon {
+      &:before {
+        @include anim-rotating();
+      }
+    }
+  }
+}

@@ -20,7 +20,7 @@ gulp.task('style', function () {
 });
 
 gulp.task('sass:watch', function () {
-  gulp.watch('./dev/assets/scss/**/*.scss', ['sass']);
+  gulp.watch('./dev/assets/scss/**/*.scss', ['style']);
 });
 
 
@@ -40,10 +40,10 @@ gulp.task('Iconfont', function(done){
           .pipe(consolidate('lodash', {
             glyphs: glyphs,
             fontName: 'pnfont',
-            fontPath: './dev/assets/fonts/',
+            fontPath: '../fonts/',
             className: 'if'
           }))
-          .pipe(rename("_fonts.scss"))
+          .pipe(rename("atoms/_icons.scss"))
           .pipe(gulp.dest('./dev/assets/scss/'))
           .on('finish', cb);
       });
