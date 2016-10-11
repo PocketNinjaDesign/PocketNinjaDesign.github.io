@@ -1,0 +1,96 @@
+
+@mixin textPrimary {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+}
+
+@mixin textMedium {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+}
+
+@mixin textStrong {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+}
+
+
+
+@mixin HeaderPrimary {
+  font-family: 'Fredoka One', cursive, sans-serif;
+  font-weight: 300;
+}
+
+
+
+/*
+ * Header Fonts
+ *
+ *
+ */
+@mixin h-size1 {
+  @include HeaderPrimary();
+  font-size: 70px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+@mixin h-size2 {
+  @include HeaderPrimary();
+  font-size: 45px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+@mixin h-size3 {
+  @include HeaderPrimary();
+  font-size: 28px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+@mixin h-size4 {
+  @include textStrong();
+  font-size: 24px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+@mixin h-size5 {
+  @include textMedium();
+  font-size: 22px;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+
+
+/*
+ * Text Fonts
+ *
+ *
+ */
+@mixin t-size1 {
+  font-size: 10px;
+  line-height: 1.1;
+}
+
+@mixin t-size2 {
+  font-size: 12px;
+  line-height: 1.1;
+}
+
+@mixin t-size3 {
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+@mixin t-size4 {
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+@mixin t-size5 {
+  font-size: 18px;
+  line-height: 1.1;
+}
