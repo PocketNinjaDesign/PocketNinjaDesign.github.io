@@ -1,0 +1,18 @@
+
+
+<% _.each(defaults, function(category, key) { %>
+  Yo.add('config.<%=key%>', function() {
+      return {
+        <% i = 1 %>
+        <% _.each(category, function(value, key) { %>
+          <% comma = (Object.keys(category).length === i) ? '': ',' %>
+          <% if(typeof value === 'string') {%>
+            <%= key %>: '<%= value %>'<%= comma %>
+          <%} else { %>
+            <%= key %> : <%= value %><%= comma %>
+          <% } %>
+          <% i++ %>
+        <% }); %>
+      }
+    });
+<% }); %>

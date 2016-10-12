@@ -18,11 +18,20 @@ var sharedVars = require('./dev/assets/config');
  *
  */
 gulp.task('compile', function() {
+
+  // SASS config to template
   gulp.src('./dev/assets/templates/sass-vars.txt')
     .pipe(template(sharedVars))
     .pipe(rename('_vars.scss'))
     .pipe(removeEmptyLines())
     .pipe(gulp.dest('./dev/assets/scss'));
+
+  // Javascript config to template
+  gulp.src('./dev/assets/templates/js-vars.txt')
+    .pipe(template(sharedVars))
+    .pipe(rename('_vars.js'))
+    .pipe(removeEmptyLines())
+    .pipe(gulp.dest('./dev/assets/js'));
 });
 
 
