@@ -6,6 +6,25 @@ var consolidate = require('gulp-consolidate');
 var rename = require("gulp-rename");
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
+var template = require('gulp-template');
+var removeEmptyLines = require('gulp-remove-empty-lines');
+
+// Configuration vars
+var sharedVars = require('./dev/assets/config');
+
+
+/*
+ * Compile
+ *
+ */
+gulp.task('compile', function() {
+  gulp.src('./dev/assets/templates/sass-vars.txt')
+    .pipe(template(sharedVars))
+    .pipe(rename('_vars.scss'))
+    .pipe(removeEmptyLines())
+    .pipe(gulp.dest('./dev/assets/scss'));
+});
+
 
 
 /*
