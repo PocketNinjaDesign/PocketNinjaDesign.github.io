@@ -1,12 +1,20 @@
 
 h1 {
-  font-size: 70px;
-  line-height: 1.1;
-  margin-bottom: 15px;
+  @include h-size1();
 }
 
 h2 {
-  font-size: 30px;
-  line-height: 1.1;
-  margin-bottom: 15px;
+  @include h-size2();
+}
+
+h3 {
+  @include h-size3();
+}
+
+h4 {
+  @include h-size4();
+}
+
+h5 {
+  @include h-size5();
 }

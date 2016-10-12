@@ -1,0 +1,23 @@
+
+
+p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0 0 20px 0;
+}
+
+.t-size1 {
+  @include t-size1();
+}
+.t-size2 {
+  @include t-size2();
+}
+.t-size3 {
+  @include t-size3();
+}
+.t-size4 {
+  @include t-size4();
+}
+.t-size5 {
+  @include t-size5();
+}
