@@ -15,6 +15,8 @@ var sharedVars = require('./dev/assets/config');
 
 /*
  * Compile
+ * Takes the config vars and creates a JS and Sass variable
+ * file using underscore templates
  *
  */
 gulp.task('compile', function() {
@@ -84,7 +86,10 @@ gulp.task('Iconfont', function(done){
 });
 
 
+gulp.task('build', function() {
+  runSequence('Iconfont');
+});
 
 gulp.task('default', function() {
-  runSequence('Iconfont', 'style');
+  runSequence('compile', 'style');
 });
