@@ -1,11 +1,10 @@
 var async = require('async');
 var gulp = require('gulp');
 var lodash = require('lodash');
-
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 var rename = require("gulp-rename");
-
+var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 
 
@@ -58,6 +57,6 @@ gulp.task('Iconfont', function(done){
 
 
 
-gulp.task('default', ['Iconfont', 'style'], function() {
-  // Run some shizzle in here when the time is right!
+gulp.task('default', function() {
+  runSequence('Iconfont', 'style');
 });
