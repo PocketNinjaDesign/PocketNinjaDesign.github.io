@@ -1,6 +1,7 @@
 
 // VENDORS
 //= require vendor/jquery-2.1.4.min.js
+//= require vendor/chartist.js
 //= require vendor/yo.min.js
 
 var pn = {};

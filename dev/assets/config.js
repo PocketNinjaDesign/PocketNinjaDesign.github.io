@@ -17,7 +17,7 @@ module.exports = {
     breakpoints: {
       siteWidth: '1004px',
       mobilePortrait: '320px',
-      mobileLandscape: '500px',
+      mobileLandscape: '480px',
       tabletPortrait: '768px',
       tabletLandscape: '1024px'
     }

@@ -1,4 +1,8 @@
 
+h1, h2, h3, h4, h5  {
+  word-wrap: break-word;
+}
+
 h1 {
   @include h-size1();
 }
@@ -17,4 +21,11 @@ h4 {
 
 h5 {
   @include h-size5();
+}
+
+.primary-title {
+  @include h-size2();
+  @include media(min-width $mobileLandscape) {
+    @include h-size1();
+  }
 }

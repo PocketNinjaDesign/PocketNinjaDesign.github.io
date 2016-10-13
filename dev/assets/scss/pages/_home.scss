@@ -5,18 +5,17 @@
     border-radius: 10px;
     box-shadow: 0 0 100px rgba(0,0,0,0.15);
     padding: 30px;
+    margin-bottom: 30px;
   }
 
   .yo {
     @extend %boxShape;
     background-color: $primaryColourLight;
     color: $primaryColourDark;
-    margin-bottom: 30px;
   }
 
   .icon-test {
     @extend %boxShape;
-    margin-bottom: 30px;
 
     .icon {
       &:before {
@@ -28,5 +27,9 @@
   .typography {
     @extend %boxShape;
     text-align: left;
+  }
+
+  .chartist {
+    @extend %boxShape;
   }
 }
