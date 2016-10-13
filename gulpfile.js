@@ -8,6 +8,7 @@ var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var template = require('gulp-template');
 var removeEmptyLines = require('gulp-remove-empty-lines');
+var include = require("gulp-include");
 
 // Configuration vars
 var sharedVars = require('./dev/assets/config');
@@ -48,8 +49,19 @@ gulp.task('style', function () {
     .pipe(gulp.dest('./assets/css'));
 });
 
-gulp.task('sass:watch', function () {
+gulp.task('scripts', function() {
+  return gulp.src([
+      './dev/assets/js/head-script.js',
+      './dev/assets/js/body-script.js'
+    ])
+    .pipe(include())
+    .on('error', console.log)
+    .pipe(gulp.dest('./assets/js'));
+});
+
+gulp.task('watch', function () {
   gulp.watch('./dev/assets/scss/**/*.scss', ['style']);
+  gulp.watch('./dev/assets/js/**/*.js', ['scripts']);
 });
 
 
@@ -91,5 +103,5 @@ gulp.task('build', function() {
 });
 
 gulp.task('default', function() {
-  runSequence('compile', 'style');
+  runSequence('compile', 'scripts', 'style');
 });

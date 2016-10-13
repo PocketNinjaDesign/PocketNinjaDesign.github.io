@@ -156,16 +156,20 @@ h5 {
   padding: 20px;
   text-align: center; }
 
-.page.home .icon-test {
+.page.home .yo, .page.home .icon-test, .page.home .typography {
   border-radius: 10px;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.15);
-  padding: 30px;
+  padding: 30px; }
+
+.page.home .yo {
+  background-color: #f77073;
+  color: #5c292b;
+  margin-bottom: 30px; }
+
+.page.home .icon-test {
   margin-bottom: 30px; }
   .page.home .icon-test .icon:before {
     animation: rotating 2s linear infinite; }
 
 .page.home .typography {
-  border-radius: 10px;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.15);
-  padding: 30px;
   text-align: left; }
