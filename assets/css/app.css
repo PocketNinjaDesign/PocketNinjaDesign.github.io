@@ -776,6 +776,45 @@ h5 {
   margin: 0 auto;
   max-width: 1004px; }
 
+.pivot {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #ccc;
+  margin: 0 10px;
+  cursor: pointer; }
+  .pivot:before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border: 1px solid #333; }
+  .pivot.top:before {
+    top: -5px;
+    left: 5px; }
+  .pivot.middle-y:before {
+    top: 5px;
+    left: 5px; }
+  .pivot.bottom:before {
+    top: 15px;
+    left: 5px; }
+  .pivot.left:before {
+    top: 5px;
+    left: -5px; }
+  .pivot.middle-x:before {
+    top: 5px;
+    left: 5px; }
+  .pivot.right:before {
+    top: 5px;
+    left: 15px; }
+
+.bttn {
+  padding: 10px 20px;
+  background: #5c292b;
+  color: #f77073;
+  cursor: pointer; }
+
 .page {
   padding: 20px;
   text-align: center; }
@@ -797,18 +836,23 @@ h5 {
   text-align: left; }
 
 .footer {
-  padding: 800px 0;
-  position: relative; }
+  padding: 800px 100px;
+  position: relative;
+  text-align: center; }
+  .footer .angles {
+    margin: 0 auto;
+    padding: 50px 0; }
+  .footer .bttn {
+    margin: 20px 0; }
   .footer .egg {
     position: absolute;
     width: 100px;
     height: 100px;
-    background: #7d393a;
+    background: #b35153;
     z-index: 2; }
   .footer .turnip {
     z-index: 1;
     position: relative;
-    left: 100px;
     width: 400px;
     height: 400px;
     background: #f77073; }

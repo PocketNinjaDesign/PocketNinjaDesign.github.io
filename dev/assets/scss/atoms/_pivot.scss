@@ -1,0 +1,57 @@
+
+
+.pivot {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #ccc;
+  margin: 0 10px;
+  cursor: pointer;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border: 1px solid #333;
+  }
+
+  &.top {
+    &:before {
+      top: -5px;
+      left: 5px;
+    }
+  }
+  &.middle-y {
+    &:before {
+      top: 5px;
+      left: 5px;
+    }
+  }
+  &.bottom {
+    &:before {
+      top: 15px;
+      left: 5px;
+    }
+  }
+
+  &.left {
+    &:before {
+      top: 5px;
+      left: -5px;
+    }
+  }
+  &.middle-x {
+    &:before {
+      top: 5px;
+      left: 5px;
+    }
+  }
+  &.right {
+    &:before {
+      top: 5px;
+      left: 15px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 
 
-Yo.add('page.home', ['utils.align'], function(utilsAlign) {
+Yo.add('page.home', ['utils.align', 'widget.pivot'], function(utilsAlign, pivot) {
   if($('#pageHome').length > 0) {
     var data = {
       series: [
@@ -16,6 +16,19 @@ Yo.add('page.home', ['utils.align'], function(utilsAlign) {
       showLabel: false
     });
 
+    var pivotBlock = pivot.create($('#homePivot'), {
+      type: 'set',
+      e: $('.turnip'),
+      y: 'top',
+      x: 'left',
+      yPivot: 'top',
+      xPivot: 'left'
+    }, function() {
+      $('.egg').align(pivotBlock.get());
+    });
+
+
+    /*
     $('.egg').align({
       type: 'set',
       e: $('.turnip'),
@@ -24,5 +37,6 @@ Yo.add('page.home', ['utils.align'], function(utilsAlign) {
       yPivot: 'top',
       xPivot: 'left'
     });
+    */
   }
 });
