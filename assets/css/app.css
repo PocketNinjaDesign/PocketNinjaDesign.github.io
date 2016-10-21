@@ -649,7 +649,7 @@ body {
 @font-face {
   font-family: "pnfont";
   src: url("../fonts/pnfont.eot");
-  src: url("../fonts/pnfont.eot?#iefix") format("eot"), url("../fonts/pnfont.woff2") format("woff2"), url("../fonts/pnfont.woff") format("woff"), url("../fonts/pnfont.ttf") format("truetype"), url("../fonts/pnfont.svg#pnfont") format("svg"); }
+  src: url("../fonts/pnfont.eot?#iefix") format("eot"), url("../fonts/pnfont.woff") format("woff"), url("../fonts/pnfont.ttf") format("truetype"), url("../fonts/pnfont.svg#pnfont") format("svg"); }
 
 .if-facebook:before, .if-instagram:before, .if-shuriken-250:before, .if-shuriken-500:before, .if-twitter:before {
   font-family: "pnfont";
@@ -795,3 +795,20 @@ h5 {
 
 .page.home .typography {
   text-align: left; }
+
+.footer {
+  padding: 800px 0;
+  position: relative; }
+  .footer .egg {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #7d393a;
+    z-index: 2; }
+  .footer .turnip {
+    z-index: 1;
+    position: relative;
+    left: 100px;
+    width: 400px;
+    height: 400px;
+    background: #f77073; }

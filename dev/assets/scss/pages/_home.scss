@@ -33,3 +33,24 @@
     @extend %boxShape;
   }
 }
+
+.footer {
+  padding: 800px 0;
+  position: relative;
+
+  .egg {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: $primaryColourMedium;
+    z-index: 2;
+  }
+  .turnip {
+    z-index: 1;
+    position: relative;
+    left: 100px;
+    width: 400px;
+    height: 400px;
+    background: $primaryColourLight;
+  }
+}

@@ -1,5 +1,6 @@
 var async = require('async');
 var gulp = require('gulp');
+var watch = require('gulp-watch');
 var lodash = require('lodash');
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
@@ -9,6 +10,7 @@ var sass = require('gulp-sass');
 var template = require('gulp-template');
 var removeEmptyLines = require('gulp-remove-empty-lines');
 var include = require("gulp-include");
+var webserver = require('gulp-webserver');
 
 // Configuration vars
 var sharedVars = require('./dev/assets/config');
@@ -97,6 +99,24 @@ gulp.task('Iconfont', function(done){
   ], done);
 });
 
+gulp.task('webserver', function() {
+  gulp.src('./')
+    .pipe(webserver({
+      livereload: true,
+      directoryListing: false,
+      open: true,
+      fallback: 'index.html'
+    }));
+});
+
+
+gulp.task('serve', function () {
+  // Endless stream mode
+  watch('./dev/assets/scss/**/*.scss', { ignoreInitial: false })
+    .pipe(function() {
+      gulp.start('style');
+    });
+});
 
 gulp.task('build', function() {
   runSequence('Iconfont');
