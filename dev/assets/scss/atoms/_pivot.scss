@@ -17,6 +17,13 @@
     border: 1px solid #333;
   }
 
+  &.active {
+    background: $primaryColourLight;
+    &:before {
+      border-color: $primaryColour;
+    }
+  }
+
   &.top {
     &:before {
       top: -5px;

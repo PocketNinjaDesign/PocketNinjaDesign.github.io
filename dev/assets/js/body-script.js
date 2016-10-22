@@ -1,5 +1,10 @@
 
 
+// Configs
+//= require ninjules/config/_vars.js
+//= require ninjules/config/charts.js
+
+
 // Directive Component
 //= require ninjules/yoTest.js
 

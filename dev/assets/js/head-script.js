@@ -12,8 +12,3 @@ Yo.init({
   //,debugMode: true
   //,debugScripts: []
 });
-
-
-
-// Main head scripts
-//= require _vars.js

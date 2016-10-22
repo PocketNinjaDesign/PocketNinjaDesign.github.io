@@ -36,7 +36,7 @@ gulp.task('compile', function() {
     .pipe(template(sharedVars))
     .pipe(rename('_vars.js'))
     .pipe(removeEmptyLines())
-    .pipe(gulp.dest('./dev/assets/js'));
+    .pipe(gulp.dest('./dev/assets/js/ninjules/config'));
 });
 
 

@@ -1,5 +1,21 @@
 
 
+// Configs
+  Yo.add('config.colours', function() {      return {            primaryColour: '#b35153',            primaryColourDark: '#5c292b',            primaryColourLight: '#f77073',            primaryColourMedium: '#7d393a',            shadowColour: '#000'      }    });  Yo.add('config.transparencies', function() {      return {            shadowOpacity : 0.15      }    });  Yo.add('config.breakpoints', function() {      return {            siteWidth: '1004px',            mobilePortrait: '320px',            mobileLandscape: '480px',            tabletPortrait: '768px',            tabletLandscape: '1024px'      }    });
+
+Yo.add('config.charts', function() {
+  return {
+    defaultPie: {
+      donut: true,
+      donutWidth: 100,
+      startAngle: 0,
+      total: 360,
+      showLabel: false
+    }
+  }
+});
+
+
 // Directive Component
 
 Yo.add('yoTest', ['config.breakpoints'], function(configBreakPoints) {
@@ -122,6 +138,15 @@ Yo.add('utils.align', function() {
 Yo.add('widget.pivot', function() {
 
   var Pivot = function(element, options, callBack) {
+    var pivots = {
+      ytop: 'top',
+      ymiddle: 'y-middle',
+      ybottom: 'bottom',
+      xleft: 'left',
+      xmiddle: 'x-middle',
+      xright: 'right'
+    };
+
     var alignments = {
       e: $('.pivot'),
       y: 'top',
@@ -133,10 +158,29 @@ Yo.add('widget.pivot', function() {
     var $this = $(element);
 
     var init = function() {
+
+      var removeActiveX = function() {
+        $this.find('[data-pivot-left]').removeClass('active');
+        $this.find('[data-pivot-x-middle]').removeClass('active');
+        $this.find('[data-pivot-right]').removeClass('active');
+      };
+
+      var removeActiveY = function() {
+        $this.find('[data-pivot-top]').removeClass('active');
+        $this.find('[data-pivot-y-middle]').removeClass('active');
+        $this.find('[data-pivot-bottom]').removeClass('active');
+      };
+
       $.extend(alignments, options);
+
+      // Activate initial pivots
+      $this.find('[data-pivot-' + pivots['x' + alignments.x] + ']').addClass('active');
+      $this.find('[data-pivot-' + pivots['y' + alignments.y] + ']').addClass('active');
 
       $this.find('[data-pivot-top]').on('click', function() {
         console.log('clicked pivot TOP');
+        removeActiveY();
+        $(this).addClass('active');
         alignments = $.extend(alignments, {
           yPivot: 'top'
         });
@@ -144,7 +188,9 @@ Yo.add('widget.pivot', function() {
       });
 
       $this.find('[data-pivot-y-middle]').on('click', function() {
-        console.log('clicked pivot MIDDE Y');
+        console.log('clicked pivot MIDDLE Y');
+        removeActiveY();
+        $(this).addClass('active');
         alignments = $.extend(alignments, {
           yPivot: 'middle'
         });
@@ -153,6 +199,8 @@ Yo.add('widget.pivot', function() {
 
       $this.find('[data-pivot-bottom]').on('click', function() {
         console.log('clicked pivot BOTTOM');
+        removeActiveY();
+        $(this).addClass('active');
         alignments = $.extend(alignments, {
           yPivot: 'bottom'
         });
@@ -161,6 +209,8 @@ Yo.add('widget.pivot', function() {
 
       $this.find('[data-pivot-left]').on('click', function() {
         console.log('clicked pivot LEFT');
+        removeActiveX();
+        $(this).addClass('active');
         alignments = $.extend(alignments, {
           xPivot: 'left'
         });
@@ -169,6 +219,8 @@ Yo.add('widget.pivot', function() {
 
       $this.find('[data-pivot-x-middle]').on('click', function() {
         console.log('clicked pivot MIDDLE Y');
+        removeActiveX();
+        $(this).addClass('active');
         alignments = $.extend(alignments, {
           xPivot: 'middle'
         });
@@ -177,6 +229,8 @@ Yo.add('widget.pivot', function() {
 
       $this.find('[data-pivot-right]').on('click', function() {
         console.log('clicked pivot RIGHT');
+        removeActiveX();
+        $(this).addClass('active');
         alignments = $.extend(alignments, {
           xPivot: 'right'
         });
@@ -210,7 +264,7 @@ Yo.add('widget.pivot', function() {
 // Directive Page
 
 
-Yo.add('page.home', ['utils.align', 'widget.pivot'], function(utilsAlign, pivot) {
+Yo.add('page.home', ['utils.align', 'widget.pivot', 'config.charts'], function(utilsAlign, pivot, confCharts) {
   if($('#pageHome').length > 0) {
     var data = {
       series: [
@@ -218,13 +272,7 @@ Yo.add('page.home', ['utils.align', 'widget.pivot'], function(utilsAlign, pivot)
       ]
     };
 
-    new Chartist.Pie('.ct-chart', data, {
-      donut: true,
-      donutWidth: 100,
-      startAngle: 0,
-      total: 360,
-      showLabel: false
-    });
+    new Chartist.Pie('.ct-chart', data, confCharts.defaultPie);
 
     var pivotBlock = pivot.create($('#homePivot'), {
       type: 'set',
@@ -234,19 +282,7 @@ Yo.add('page.home', ['utils.align', 'widget.pivot'], function(utilsAlign, pivot)
       yPivot: 'top',
       xPivot: 'left'
     }, function() {
-      $('.egg').align(pivotBlock.get());
+      $('.egg').align(pivotBlock.get())
     });
-
-
-    /*
-    $('.egg').align({
-      type: 'set',
-      e: $('.turnip'),
-      y: 'top',
-      x: 'left',
-      yPivot: 'top',
-      xPivot: 'left'
-    });
-    */
   }
 });

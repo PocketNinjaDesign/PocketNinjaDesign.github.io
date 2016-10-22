@@ -1,6 +1,6 @@
 
 
-Yo.add('page.home', ['utils.align', 'widget.pivot'], function(utilsAlign, pivot) {
+Yo.add('page.home', ['utils.align', 'widget.pivot', 'config.charts'], function(utilsAlign, pivot, confCharts) {
   if($('#pageHome').length > 0) {
     var data = {
       series: [
@@ -8,13 +8,7 @@ Yo.add('page.home', ['utils.align', 'widget.pivot'], function(utilsAlign, pivot)
       ]
     };
 
-    new Chartist.Pie('.ct-chart', data, {
-      donut: true,
-      donutWidth: 100,
-      startAngle: 0,
-      total: 360,
-      showLabel: false
-    });
+    new Chartist.Pie('.ct-chart', data, confCharts.defaultPie);
 
     var pivotBlock = pivot.create($('#homePivot'), {
       type: 'set',
@@ -24,19 +18,7 @@ Yo.add('page.home', ['utils.align', 'widget.pivot'], function(utilsAlign, pivot)
       yPivot: 'top',
       xPivot: 'left'
     }, function() {
-      $('.egg').align(pivotBlock.get());
+      $('.egg').align(pivotBlock.get())
     });
-
-
-    /*
-    $('.egg').align({
-      type: 'set',
-      e: $('.turnip'),
-      y: 'top',
-      x: 'left',
-      yPivot: 'top',
-      xPivot: 'left'
-    });
-    */
   }
 });

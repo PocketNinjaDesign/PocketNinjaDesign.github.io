@@ -790,6 +790,10 @@ h5 {
     width: 10px;
     height: 10px;
     border: 1px solid #333; }
+  .pivot.active {
+    background: #f77073; }
+    .pivot.active:before {
+      border-color: #b35153; }
   .pivot.top:before {
     top: -5px;
     left: 5px; }
@@ -842,8 +846,6 @@ h5 {
   .footer .angles {
     margin: 0 auto;
     padding: 50px 0; }
-  .footer .bttn {
-    margin: 20px 0; }
   .footer .egg {
     position: absolute;
     width: 100px;
