@@ -119,6 +119,13 @@ gulp.task('Iconfont', function(done){
   ], done);
 });
 
+
+gulp.task('copy', function () {
+  return gulp.src('./dev/assets/images/**/**.*')
+    .pipe(gulp.dest('./assets/images'));
+});
+
+
 gulp.task('webserver', function() {
   gulp.src('./')
     .pipe(webserver({
@@ -143,5 +150,5 @@ gulp.task('build', function() {
 });
 
 gulp.task('default', function() {
-  runSequence('compile', 'scripts', 'style');
+  runSequence('twig', 'compile', 'scripts', 'style', 'copy');
 });

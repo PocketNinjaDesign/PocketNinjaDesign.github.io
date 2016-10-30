@@ -823,6 +823,12 @@ h5 {
   padding: 20px;
   text-align: center; }
 
+.header {
+  text-align: center;
+  padding: 20px 0 0 0; }
+  .header img {
+    border-radius: 20px; }
+
 .page.home .yo, .page.home .icon-test, .page.home .typography, .page.home .chartist {
   border-radius: 10px;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.15);

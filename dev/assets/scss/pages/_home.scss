@@ -1,4 +1,12 @@
 
+.header {
+  text-align: center;
+  padding: 20px 0 0 0;
+
+  img {
+    border-radius: 100px;
+  }
+}
 
 .page.home {
   %boxShape {
