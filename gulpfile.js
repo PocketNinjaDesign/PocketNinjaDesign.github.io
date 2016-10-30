@@ -4,11 +4,14 @@ var watch = require('gulp-watch');
 var lodash = require('lodash');
 var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
-var rename = require("gulp-rename");
+
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
+
+var rename = require("gulp-rename");
 var template = require('gulp-template');
 var removeEmptyLines = require('gulp-remove-empty-lines');
+
 var include = require("gulp-include");
 var webserver = require('gulp-webserver');
 
@@ -64,6 +67,23 @@ gulp.task('scripts', function() {
 gulp.task('watch', function () {
   gulp.watch('./dev/assets/scss/**/*.scss', ['style']);
   gulp.watch('./dev/assets/js/**/*.js', ['scripts']);
+});
+
+
+/*
+ * Twig Template
+ *
+ */
+gulp.task('twig', function () {
+  'use strict';
+  var twig = require('gulp-twig');
+  var contentData = require('./dev/assets/twig/contentData');
+
+  return gulp.src('./dev/assets/twig/**.twig')
+    .pipe(twig({
+      data: contentData
+    }))
+    .pipe(gulp.dest('./'));
 });
 
 

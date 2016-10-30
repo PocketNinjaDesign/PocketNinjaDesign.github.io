@@ -37,6 +37,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-template": "^4.0.0",
+    "gulp-twig": "^0.6.0",
     "gulp-watch": "^4.3.10",
     "gulp-webserver": "^0.9.1",
     "lodash": "^4.16.4",

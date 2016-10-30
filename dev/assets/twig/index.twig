@@ -1,0 +1,52 @@
+{% extends "master-templates/layout.twig" %}
+
+{% block pageTitle %}This is a test{% endblock %}
+
+{% block page %}
+  <header id="header"></header>
+  <div id="pageHome" class="page home">
+    <h1 class="primary-title">{{ pages.home.title }}</h1>
+    <p>Will fill this up eventually, so many projects going on and so little time.</p>
+
+    <div id="yoTest" class="site-wrap yo" style="display: none;">
+      <h2>Waiting for Yo</h2>
+      <p class="breakpoint"></p>
+      <p class="colour"></p>
+    </div>
+
+    <div class="site-wrap icon-test">
+      <h2>Quick Icon test of 250px and 500px</h2>
+      <p class="t-size4">Thicker paragraph font</p>
+      <p>So I wanted to see what would happen if I created 2 icons of different sizes.  I kind of expected that they may become the same size as all it cares about is the ratio.  However as is evident here,  the size of the icon alters based on the measurements of the svg you use to create your font...So the clue for myself and for other here is:  <span class="inline">Always make sure ALL of your icons are the same size!!!</span></p>
+      <div class="icon if if-shuriken-250"></div>
+      <div class="icon if if-shuriken-500"></div>
+    </div>
+
+    <div class="site-wrap typography">
+      <h1>H1: Pocketninja</h1>
+      <h2>H2: Pocketninja</h2>
+      <h3>H3: Pocketninja</h3>
+      <h4>H4: Pocketninja</h4>
+      <h5>H5: Pocketninja</h5>
+
+      <p class="t-size1">P: A ninja or shinobi was a covert agent or mercenary in feudal Japan. The functions of the ninja included espionage, sabotage, infiltration, assassination and guerrilla warfare.[1] Their covert methods of waging irregular warfare were deemed "dishonorable" and "beneath" the samurai-caste, who observed strict rules about honor and combat.[2] The shinobi proper, a specially trained group of spies and mercenaries, appeared in the 15th century during the Sengoku period,[3] but antecedents may have existed in the 14th century,[4] and possibly in the 12th century (Heian or early Kamakura era).[5][6]</p>
+
+      <p class="t-size2">P: A ninja or shinobi was a covert agent or mercenary in feudal Japan. The functions of the ninja included espionage, sabotage, infiltration, assassination and guerrilla warfare.[1] Their covert methods of waging irregular warfare were deemed "dishonorable" and "beneath" the samurai-caste, who observed strict rules about honor and combat.[2] The shinobi proper, a specially trained group of spies and mercenaries, appeared in the 15th century during the Sengoku period,[3] but antecedents may have existed in the 14th century,[4] and possibly in the 12th century (Heian or early Kamakura era).[5][6]</p>
+
+      <p class="t-size3">P: A ninja or shinobi was a covert agent or mercenary in feudal Japan. The functions of the ninja included espionage, sabotage, infiltration, assassination and guerrilla warfare.[1] Their covert methods of waging irregular warfare were deemed "dishonorable" and "beneath" the samurai-caste, who observed strict rules about honor and combat.[2] The shinobi proper, a specially trained group of spies and mercenaries, appeared in the 15th century during the Sengoku period,[3] but antecedents may have existed in the 14th century,[4] and possibly in the 12th century (Heian or early Kamakura era).[5][6]</p>
+
+      <p class="t-size4">P: A ninja or shinobi was a covert agent or mercenary in feudal Japan. The functions of the ninja included espionage, sabotage, infiltration, assassination and guerrilla warfare.[1] Their covert methods of waging irregular warfare were deemed "dishonorable" and "beneath" the samurai-caste, who observed strict rules about honor and combat.[2] The shinobi proper, a specially trained group of spies and mercenaries, appeared in the 15th century during the Sengoku period,[3] but antecedents may have existed in the 14th century,[4] and possibly in the 12th century (Heian or early Kamakura era).[5][6]</p>
+
+      <p class="t-size5">P: A ninja or shinobi was a covert agent or mercenary in feudal Japan. The functions of the ninja included espionage, sabotage, infiltration, assassination and guerrilla warfare.[1] Their covert methods of waging irregular warfare were deemed "dishonorable" and "beneath" the samurai-caste, who observed strict rules about honor and combat.[2] The shinobi proper, a specially trained group of spies and mercenaries, appeared in the 15th century during the Sengoku period,[3] but antecedents may have existed in the 14th century,[4] and possibly in the 12th century (Heian or early Kamakura era).[5][6]</p>
+    </div>
+
+
+    <div class="site-wrap chartist">
+      <h2>Just trying out some <a href="https://gionkunz.github.io/chartist-js/" class="inline" target="_blank">Chartist</a></h2>
+      <p>Very nice</p>
+      <div class="ct-chart ct-perfect-fourth"></div>
+    </div>
+  </div>
+
+  {% include 'components/footer.twig' %}
+{% endblock %}
