@@ -1,3 +1,5 @@
+'use strict';
+
 var async = require('async');
 var gulp = require('gulp');
 var watch = require('gulp-watch');
@@ -75,7 +77,6 @@ gulp.task('watch', function () {
  *
  */
 gulp.task('twig', function () {
-  'use strict';
   var twig = require('gulp-twig');
   var contentData = require('./dev/assets/twig/contentData');
 
