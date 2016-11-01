@@ -29,6 +29,7 @@
     "async": "^2.0.1",
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
+    "fg-loadcss": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.13",
     "gulp-consolidate": "^0.2.0",

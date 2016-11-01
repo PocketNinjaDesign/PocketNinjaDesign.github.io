@@ -17,6 +17,9 @@ time"/>
   <section>
     {% block page %}{% endblock %}
   </section>
+
+  <link rel="preload" href="assets/css/app.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/app.css"></noscript>
   <script src="assets/js/body-script.js"></script>
 </body>
 </html>
