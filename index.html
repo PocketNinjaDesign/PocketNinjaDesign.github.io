@@ -10,24 +10,36 @@ time"/>
 
   <title>This is a test</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro:300:400:700" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/app.css">
-  <script src="assets/js/head-script.js"></script>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro:300:400:700" as="style"
+        onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro:300:400:700"></noscript>
+  <style>
+    body {
+      text-align: center;
+    }
+    .header {
+      height: 264px;
+    }
+    h1 {
+      font-size: 70px;
+      word-wrap: break-word;
+    }
+  </style>
 </head>
 <body>
   <section>
     
   <header id="header" class="header">
-    <img src="assets/images/pocketninja-avatar.png" style="display: inline-block; margin: auto 0;">
   </header>
   <div id="pageHome" class="page home">
     <h1 class="primary-title">Welcome to PocketNinjaCoUk</h1>
     <p>Will fill this up eventually, so many projects going on and so little time.</p>
 
-    <div id="yoTest" class="site-wrap yo" style="display: none;">
-      <h2>Waiting for Yo</h2>
-      <p class="breakpoint"></p>
-      <p class="colour"></p>
+    <div id="yoTest" class="site-wrap yo">
+      <h2>Yo and jQuery waiting</h2>
+      <p class="breakpoint">Also the configuration shared variables should be working as well now. The size for mobile landscape is 480px</p>
+      <p class="colour">The colours are also waiting because this box will use colours pulled from the
+        shared config.</p>
     </div>
 
     <div class="site-wrap icon-test">
@@ -81,6 +93,9 @@ time"/>
 </footer>
 
   </section>
-  <script src="assets/js/body-script.js"></script>
+
+  <link rel="preload" href="assets/css/app.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/app.css"></noscript>
+  <script async src="assets/js/body-script.js"></script>
 </body>
 </html>

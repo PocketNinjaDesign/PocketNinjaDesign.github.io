@@ -16,6 +16,9 @@ var removeEmptyLines = require('gulp-remove-empty-lines');
 
 var include = require("gulp-include");
 var webserver = require('gulp-webserver');
+var cleanCSS = require('gulp-clean-css');
+var uglify = require('gulp-uglify');
+var pump = require('pump');
 
 // Configuration vars
 var sharedVars = require('./dev/assets/config');
@@ -42,6 +45,27 @@ gulp.task('compile', function() {
     .pipe(rename('_vars.js'))
     .pipe(removeEmptyLines())
     .pipe(gulp.dest('./dev/assets/js/ninjules/config'));
+});
+
+
+gulp.task('minify-css', function() {
+  return gulp.src('./assets/css/*.css')
+    .pipe(cleanCSS({compatibility: 'ie9'}))
+    .pipe(gulp.dest('./assets/css'));
+});
+
+gulp.task('minify-js', function(cb) {
+  pump([
+      gulp.src('./assets/js/*.js'),
+      uglify(),
+      gulp.dest('./assets/js')
+    ],
+    cb
+  );
+});
+
+gulp.task('minify-all', function() {
+  return runSequence('minify-js', 'minify-css');
 });
 
 
@@ -148,6 +172,10 @@ gulp.task('serve', function () {
 
 gulp.task('build', function() {
   runSequence('Iconfont');
+});
+
+gulp.task('full', function() {
+  runSequence('twig', 'compile', 'scripts', 'style', 'copy', 'minify-all');
 });
 
 gulp.task('default', function() {

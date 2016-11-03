@@ -10,14 +10,29 @@ time"/>
 
   <title>{% block pageTitle %}{% endblock %}</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro:300:400:700" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/app.css">
-  <script src="assets/js/head-script.js"></script>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro:300:400:700" as="style"
+        onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro:300:400:700"></noscript>
+  <style>
+    body {
+      text-align: center;
+    }
+    .header {
+      height: 264px;
+    }
+    h1 {
+      font-size: 70px;
+      word-wrap: break-word;
+    }
+  </style>
 </head>
 <body>
   <section>
     {% block page %}{% endblock %}
   </section>
-  <script src="assets/js/body-script.js"></script>
+
+  <link rel="preload" href="assets/css/app.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/app.css"></noscript>
+  <script async src="assets/js/body-script.js"></script>
 </body>
 </html>

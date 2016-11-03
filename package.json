@@ -29,7 +29,9 @@
     "async": "^2.0.1",
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
+    "fg-loadcss": "^1.2.0",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
     "gulp-consolidate": "^0.2.0",
     "gulp-iconfont": "^8.0.1",
     "gulp-include": "^2.3.1",
@@ -38,9 +40,11 @@
     "gulp-sass": "^2.3.2",
     "gulp-template": "^4.0.0",
     "gulp-twig": "^0.6.0",
+    "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.10",
     "gulp-webserver": "^0.9.1",
     "lodash": "^4.16.4",
+    "pump": "^1.0.1",
     "run-sequence": "^1.2.2"
   }
 }
