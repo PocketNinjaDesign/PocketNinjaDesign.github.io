@@ -2,7 +2,7 @@
 // ------------------------------------- HEAD CONTENT
 
 // VENDORS
-//#= require vendor/cssrelpreload.js
+//= require vendor/cssrelpreload.js
 //= require vendor/loadCSS.js
 //#= require vendor/onloadCSS.js
 
