@@ -2,9 +2,9 @@
 // ------------------------------------- HEAD CONTENT
 
 // VENDORS
-//= require vendor/cssrelpreload.js
+//#= require vendor/cssrelpreload.js
 //= require vendor/loadCSS.js
-//= require vendor/onloadCSS.js
+//#= require vendor/onloadCSS.js
 
 
 //= require vendor/jquery-2.1.4.min.js
