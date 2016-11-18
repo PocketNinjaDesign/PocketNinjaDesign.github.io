@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tester page</title>
+</head>
+<body>
+  <div class="checkdacone">
+    <div class="monkey">
+      <p pn-widget='{"name": "Duncan"}'>hello I am a sentence with <span>a block in a span</span></p>
+    </div>
+    <div class="chicken">
+      <p pn-ninja='{"name": "Pocketninja"}'>hello I am a sentence with <span>bollox in a pan</span></p>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+
+      var widgetChecker = function(element) {
+        //console.log(element);
+        if(element.attributes.length > 0) {
+          for(var i = 0; i < element.attributes.length; i++) {
+            var n = element.attributes[i].name.indexOf('pn-');
+            if(n === 0) {
+              console.log('Widget Name: ' + element.attributes[i].name);
+            }
+          }
+        }
+      };
+
+      var nodeCycler = function(element) {
+        var length = element.children.length;
+        // Section where to check for data attributes
+        //console.log(element);
+        widgetChecker(element);
+
+        if(length > 0) {
+          for(var i = 0; i < length; i++) {
+            nodeCycler(element.children[i]);
+          }
+        }
+      };
+
+      nodeCycler(document.querySelector('body'));
+
+    }())
+  </script>
+</body>
+</html>
