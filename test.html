@@ -7,23 +7,108 @@
 <body>
   <div class="checkdacone">
     <div class="monkey">
-      <p pn-widget='{"name": "Duncan"}'>hello I am a sentence with <span>a block in a span</span></p>
+      <p pn-widget1='{"className": "Duncan"}'>hello I am a sentence with <span>a block in a span</span></p>
     </div>
     <div class="chicken">
-      <p pn-ninja='{"name": "Pocketninja"}'>hello I am a sentence with <span>bollox in a pan</span></p>
+      <p pn-widget2='{"className": "Pocketninja"}'>hello I am a sentence with <span>bollox in a pan</span></p>
     </div>
   </div>
 
+  <script src="assets/js/body-script.js"></script>
   <script>
+    Yo.add('widget1', function() {
+      var
+        Widget1 = function($element, myOptions) {
+          var $this = $element || $(this);
+          myOptions = $.extend({}, {
+            widgetName: 'widget1'
+          }, myOptions);
+
+          $this.addClass(myOptions.className);
+        };
+
+      $.fn.Widget1 = function(data) {
+        Widget1($(this), $.extend({},
+          JSON.parse($(this).attr('pn-widget1')),
+          data
+        ));
+        return this;
+      };
+
+      return {
+        Widget1: Widget1
+      };
+    });
+
+    Yo.add('widget2', function() {
+      var
+        Widget2 = function($element, myOptions) {
+          var $this = $element || $(this);
+          myOptions = $.extend({}, {
+            widgetName: 'widget2'
+          }, myOptions);
+
+          $this.addClass(myOptions.className);
+        };
+
+      $.fn.Widget2 = function(data) {
+        Widget2($(this), $.extend({},
+          JSON.parse($(this).attr('pn-widget2')),
+          data
+        ));
+        return this;
+      };
+
+      return {
+        Widget2: Widget2
+      };
+    });
+
+    Yo.add('unusedWidget', function() {
+      var
+        UnusedWidget = function($element, myOptions) {
+          var $this = $element || $(this);
+          myOptions = $.extend({}, {
+            widgetName: 'unused-widget'
+          }, myOptions);
+
+          $this.addClass(myOptions.className);
+        };
+
+      $.fn.UnusedWidget = function(data) {
+        UnusedWidget($(this), $.extend({},
+          JSON.parse($(this).attr('unused-widget')),
+          data
+        ));
+        return this;
+      };
+
+      return {
+        UnusedWidget: UnusedWidget
+      };
+    });
+
     (function() {
 
+      var capitalize = function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+      };
+
+      var runjQueryWidget = function(element, name, data) {
+        name = capitalize(name);
+        if($(element)[name]) {
+          $(element)[name](data || {});
+        }
+      };
+
       var widgetChecker = function(element) {
-        //console.log(element);
         if(element.attributes.length > 0) {
           for(var i = 0; i < element.attributes.length; i++) {
-            var n = element.attributes[i].name.indexOf('pn-');
-            if(n === 0) {
-              console.log('Widget Name: ' + element.attributes[i].name);
+            if(element.attributes[i].name.charAt(0) === 'p') {
+              var n = element.attributes[i].name.indexOf('pn-');
+              if(n === 0) {
+                runjQueryWidget(element, element.attributes[i].name.replace('pn-', ''));
+              }
             }
           }
         }
@@ -31,8 +116,6 @@
 
       var nodeCycler = function(element) {
         var length = element.children.length;
-        // Section where to check for data attributes
-        //console.log(element);
         widgetChecker(element);
 
         if(length > 0) {
@@ -42,9 +125,20 @@
         }
       };
 
-      nodeCycler(document.querySelector('body'));
+      //nodeCycler(document.querySelector('body'));
+    }());
 
-    }())
+    $('[pn-widget1]').Widget1({
+      className: 'NEW-WIDGET-1'
+    });
+
+    $('[pn-widget2]').Widget2({
+      className: 'NEW-WIDGET-2'
+    });
+
+    $('[unused-widget]').UnusedWidget({
+      className: 'NEW-WIDGET-2'
+    });
   </script>
 </body>
 </html>
