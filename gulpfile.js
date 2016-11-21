@@ -83,7 +83,9 @@ gulp.task('style', function () {
 gulp.task('scripts', function() {
   return gulp.src([
       './dev/assets/js/head-script.js',
-      './dev/assets/js/body-script.js'
+      './dev/assets/js/body-script.js',
+      './dev/assets/js/passthrough-script.js',
+      './dev/assets/js/jsperftests.js'
     ])
     .pipe(include())
     .on('error', console.log)
