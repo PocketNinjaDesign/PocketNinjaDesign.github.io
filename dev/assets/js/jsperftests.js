@@ -194,6 +194,15 @@ $("[pn-widget]").each(function(index, el) {
 });
 
 
+// Once pass through by 1 class activating attribute for ALL
+
+$('.pn-widget').each(function(index, el) {
+  $.map( JSON.parse($(el).attr('pn-widget')), function( value, key ) {
+    runjQueryWidget(el, key, value);
+  });
+});
+
+
 
 
 
