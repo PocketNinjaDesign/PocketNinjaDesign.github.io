@@ -7,6 +7,7 @@
 //#= require vendor/onloadCSS.js
 
 loadCSS( "assets/css/app.css" );
+loadCSS( "https://fonts.googleapis.com/css?family=Fredoka+One|Source+Sans+Pro:300:400:700" );
 
 
 //= require vendor/jquery-2.1.4.min.js
