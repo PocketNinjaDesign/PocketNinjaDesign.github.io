@@ -6,7 +6,7 @@
 //= require vendor/loadCSS.js
 //#= require vendor/onloadCSS.js
 
-loadCSS( "css/app.css" );
+loadCSS( "assets/css/app.css" );
 
 
 //= require vendor/jquery-2.1.4.min.js
