@@ -36,18 +36,18 @@
       </p>
 
       <div id="pageContainer">
-        <p pn-widget='{"test1": {"className": "Pocketninja"}}'
+        <p data-widget="test1" pn-widget='{"test1": {"className": "Pocketninja"}}'
            data-test1='{"className": "Pocketninja"}'>hello I am a sentence with <span>a block in a span</span></p>
-        <p pn-widget='{"test1": {"className": "Pocketninja"}}'
+        <p data-widget="test1" pn-widget='{"test1": {"className": "Pocketninja"}}'
            data-test1='{"className": "Pocketninja"}'>hello I am a sentence with <span>a block in a span</span></p>
-        <p pn-widget='{"test1": {"className": "Pocketninja"}}'
+        <p data-widget="test1" pn-widget='{"test1": {"className": "Pocketninja"}}'
            data-test1='{"className": "Pocketninja"}'>hello I am a sentence with <span>a block in a span</span></p>
-        <p pn-widget='{"test1": {"className": "Pocketninja"}}'
+        <p data-widget="test1" pn-widget='{"test1": {"className": "Pocketninja"}}'
            data-test1='{"className": "Pocketninja"}'>hello I am a sentence with <span>a block in a span</span></p>
-        <p pn-widget='{"test1": {"className": "Pocketninja"}}'
+        <p data-widget="test1" pn-widget='{"test1": {"className": "Pocketninja"}}'
            data-test1='{"className": "Pocketninja"}'>hello I am a sentence with <span>a block in a span</span></p>
 
-        <p id="widget2" pn-widget='{"test2": {"className": "CHEESE"}}'
+        <p data-widget="test2" id="widget2" pn-widget='{"test2": {"className": "CHEESE"}}'
            data-test2='{"className": "CHEESE"}'>hello I am a sentence with <span>my finger in the span</span></p>
       </div>
 
@@ -76,5 +76,20 @@
 
   <script src="assets/js/body-script.js"></script>
   <script src="assets/js/passthrough-script.js"></script>
+  <script>
+    $('[data-widget]').each(function(index, el) {
+      var $el = $(el);
+      var widgetList = $el.attr('data-widget').split(',');
+
+      if(widgetList.length < 2) {
+        runjQueryWidget(el, widgetList[0], $el.data(widgetList[0]));
+      }
+      else {
+        for(var i = 0; i < widgetList.length; i++) {
+          runjQueryWidget(el, widgetList[i], $el.data(widgetList[i]));
+        }
+      }
+    });
+  </script>
 </body>
 </html>

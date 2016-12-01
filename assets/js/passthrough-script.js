@@ -131,13 +131,13 @@ Yo.add('test.test3', function() {
 
       for(var i = 0; i < element.attributes.length; i++) {
 
-        if(element.attributes[i].name.charAt(0) === 'p') {
+        if(element.attributes[i].name.charAt(0) === 'd') {
 
-          var n = element.attributes[i].name.indexOf('pn-');
+          var n = element.attributes[i].name.indexOf('data-');
 
           if(n === 0) {
 
-            runjQueryWidget(element, element.attributes[i].name.replace('pn-', ''));
+            runjQueryWidget(element, element.attributes[i].name.replace('data-', ''));
 
           }
 

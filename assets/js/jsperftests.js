@@ -194,6 +194,31 @@ $("[pn-widget]").each(function(index, el) {
 });
 
 
+// Once pass through by 1 class activating attribute for ALL
+
+$('.pn-widget').each(function(index, el) {
+  $.map( JSON.parse($(el).attr('pn-widget')), function( value, key ) {
+    runjQueryWidget(el, key, value);
+  });
+});
+
+
+// Once pass through by 1 class activating attribute for ALL
+
+$('[pn-widget]').each(function(index, el) {
+  var widgetList = $(el).attr('pn-widget').split(',');
+
+  if(widgetList.length < 2) {
+    runjQueryWidget(el, name);
+  }
+  else {
+    for(var i = 0; i < widgetList.length; i++) {
+      runjQueryWidget(el, widgetList[i]);
+    }
+  }
+});
+
+
 
 
 

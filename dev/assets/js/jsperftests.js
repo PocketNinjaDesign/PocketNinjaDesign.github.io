@@ -203,6 +203,22 @@ $('.pn-widget').each(function(index, el) {
 });
 
 
+// Once pass through by 1 attribute with string list to split and run each item as widget
+
+$('[data-widget]').each(function(index, el) {
+  var $el = $(el);
+  var widgetList = $el.attr('data-widget').split(',');
+
+  if(widgetList.length < 2) {
+    runjQueryWidget(el, widgetList[0], $el.data(widgetList[0]));
+  }
+  else {
+    for(var i = 0; i < widgetList.length; i++) {
+      runjQueryWidget(el, widgetList[i], $el.data(widgetList[i]));
+    }
+  }
+});
+
 
 
 
