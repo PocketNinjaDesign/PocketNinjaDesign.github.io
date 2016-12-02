@@ -33,7 +33,7 @@
 }
 
 .footer {
-  padding: 800px 100px;
+  padding: 100px 20%;
   position: relative;
   text-align: center;
 
@@ -44,16 +44,16 @@
 
   .egg {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     background: $primaryColour;
     z-index: 2;
   }
   .turnip {
     z-index: 1;
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     background: $primaryColourLight;
   }
 }
