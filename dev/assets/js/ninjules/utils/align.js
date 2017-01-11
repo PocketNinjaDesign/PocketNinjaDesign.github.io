@@ -28,9 +28,9 @@ Yo.add('utils.align', function() {
 
   var posY = function($el) {
     return {
-      top: $el.position().top,
-      middle: $el.position().top + ($el.height() / 2),
-      bottom: $el.position().top + $el.height()
+      top: $el.offset().top,
+      middle: $el.offset().top + ($el.height() / 2),
+      bottom: $el.offset().top + $el.height()
     }
   };
 
